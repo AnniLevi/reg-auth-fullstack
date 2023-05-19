@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/:/back/
+    env_file: .env
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    restart: always
+
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/front
+    env_file: .env
+    restart: always

@@ -8,8 +8,11 @@ services:
       - "8000:8000"
     volumes:
       - ./backend/:/back/
-    env_file: .env
-    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    env_file: ./backend/.env
+    command: >
+      bash -c "python manage.py migrate &&
+               ./manage.py runserver 0.0.0.0:8000"
+
     restart: always
 
   frontend:
@@ -19,5 +22,5 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend:/front
-    env_file: .env
+    env_file: ./frontend/.env
     restart: always

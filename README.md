@@ -25,3 +25,8 @@ Start docker containers
 
 Swagger documentation
 > /swagger
+
+Coverage
+> coverage run manage.py test discover
+
+> coverage html

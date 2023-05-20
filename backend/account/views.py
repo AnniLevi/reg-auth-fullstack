@@ -1,14 +1,13 @@
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework import generics
-from rest_framework import status
+from rest_framework import generics, status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .models import User
-from .serializers import UserSerializer, RegisterSerializer
+from .serializers import RegisterSerializer, UserSerializer
 
 
 class RegisterView(generics.CreateAPIView):
@@ -18,9 +17,7 @@ class RegisterView(generics.CreateAPIView):
 
 
 class DecoratedTokenObtainPairView(TokenObtainPairView):
-    """
-    Сreated to correctly display the endpoint in the swagger
-    """
+    """Сreated to correctly display the endpoint in the swagger."""
 
     @swagger_auto_schema(
         responses={

@@ -20,9 +20,8 @@
 - Docker
 
 ### Usage
-Start the docker containers
+Start docker containers
 > docker-compose up -d --build
 
 Swagger documentation
 > /swagger
-

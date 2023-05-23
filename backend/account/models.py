@@ -8,7 +8,7 @@ class User(AbstractUser):
     first_name = models.CharField(_("first name"), max_length=150)
     last_name = models.CharField(_("last name"), max_length=150)
     email = models.EmailField(_("email address"))
-    phone_number = PhoneNumberField()
+    phone_number = PhoneNumberField(null=True, blank=True)
     country = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
 
